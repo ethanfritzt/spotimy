@@ -25,8 +25,8 @@ const scopes = [
   ];
 
 var spotifyApi = new SpotifyWebApi({
-    clientId: 'd1b5515104df4b4fb6197694b94b93db',
-    clientSecret: 'ae2cb33054d747189c823657fb308792',
+    clientId: '398f8384330644af970dd53b8a895757',
+    clientSecret: '32cc556ded574f4083d3526589f4f429',
     redirectUri: 'http://localhost:5001/callback'
 });
 
