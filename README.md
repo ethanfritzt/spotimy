@@ -1,6 +1,6 @@
 # Standin the project up
 
-This project utilizes the Spotify API, so before you can beign head over to https://developer.spotify.com/dashboard/applications and create a new application
+This project utilizes the Spotify API, so before you can beign head over to https://developer.spotify.com/dashboard/applications and create a new application.
 
 Creating a new application should generate a client id and a client secret. Copy these and create a new file in the base folder called .env and throw your client variables in there
 (In server.js I call these varibles so refer to that file for correct naming).
@@ -13,7 +13,7 @@ First, Install the necessary dependencies describes in the package-lock.json
 
 ### `node server.js`
 
-This project uses expressjs to authorize users and fetch routes so start the express server with the command above
+This project uses expressjs to authorize users and fetch routes so start the express server with the command above.
 
 ### `npm start`
 
@@ -21,7 +21,7 @@ Finally start your react app and begin coding (:
 
 # Contributions guides
 
-You can contribute to this project by forking this repository, branching off to work on your feature then commiting and pushing the result and submitting a pull request
+You can contribute to this project by forking this repository, branching off to work on your feature then commiting and pushing the result and submitting a pull request.
 I use gitkraken to manage my git repositories, or you can use sourcetree or just the plain old terminal.
 
 # Getting Started with Create React App
