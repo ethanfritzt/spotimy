@@ -15,9 +15,13 @@ type LoginProps= {
 function Login(props: LoginProps) {
 
     const path = 'http://localhost:5001/';
+    const spotifyLogo = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/2048px-Spotify_logo_without_text.svg.png';
 
     return (
-        <LoginPrompt className={classes.loginContainer} title="Spotimy" description="Login with Spotify" buttonText="Login" href="http://localhost:5001" />
+        <div>
+            <LoginPrompt className={classes.loginContainer} title="Spotimy" description="Login with Spotify" buttonText="Login" href="http://localhost:5001" />
+            <img src={spotifyLogo} className={classes.spotifyLogo} />
+        </div>
     );
 };
 
