@@ -1,6 +1,7 @@
 import SpotifyWebApi from "spotify-web-api-node";
 import express from "express";
 import cors from 'cors';
+import 'dotenv/config';
 
 const scopes = [
     'ugc-image-upload',
@@ -24,10 +25,12 @@ const scopes = [
     'user-follow-modify'
   ];
 
+console.log(process.env.REACT_APP_CLIENT_ID);
+
 var spotifyApi = new SpotifyWebApi({
-    clientId: 'd1b5515104df4b4fb6197694b94b93db',
-    clientSecret: 'ae2cb33054d747189c823657fb308792',
-    redirectUri: 'http://localhost:5001/callback'
+    clientId: process.env.REACT_APP_CLIENT_ID,
+    clientSecret: process.env.REACT_APP_CLIENT_SECRET,
+    redirectUri: process.env.REACT_APP_CALLBACK_URL,
 });
 
 const app = express();
