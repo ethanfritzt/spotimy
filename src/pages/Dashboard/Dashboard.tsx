@@ -3,7 +3,14 @@ import { Button, Col, Container, Image, Row } from 'react-bootstrap';
 import ContentCard from '../../components/ContentCard';
 import classes from './Dashboard.module.scss';
 
-import { getMyTopTracks, getMe, getMyDevices, getMyRecentlyPlayedTracks, getCurrentTrack } from '../../services/service';
+import {
+    getMyTopTracks,
+    getMe,
+    getMyDevices,
+    getMyRecentlyPlayedTracks,
+    getCurrentTrack,
+    getCurrentPlaybackState
+} from '../../services/service';
 import clsx from 'clsx';
 
 type DashboardProps = {
@@ -17,6 +24,7 @@ function Dashboard(props: DashboardProps) {
     const [myDevices, setMyDevices] = useState<any>();
     const [recentTracks, setRecentTracks] = useState<any>();
     const [currentTrack, setCurrentTrack] = useState<any>();
+    const [playbackState, setPlaybackState] = useState<any>();
 
     useEffect(() => {
         getMyTopTracksAsync();
@@ -24,6 +32,7 @@ function Dashboard(props: DashboardProps) {
         getMyDevicesAsync();
         getMyRecentlyPlayedTracksAsync();
         getCurrentTrackAsync();
+        getCurrentPlaybackStateAsync();
     }, []);
 
     // Async function
@@ -52,7 +61,12 @@ function Dashboard(props: DashboardProps) {
         setCurrentTrack(data);
     };
 
-    console.log(currentTrack);
+    const getCurrentPlaybackStateAsync = async () => {
+        const data = await getCurrentPlaybackState();
+        setPlaybackState(data);
+    };
+
+    console.log(playbackState);
 
     return (
         <>
@@ -61,19 +75,19 @@ function Dashboard(props: DashboardProps) {
             </div>
             <div className={classes.currentlyPlayingText}>Currently Playing</div>
             <div className={classes.container}>
-            <div className={classes.currentlyPlayingContainer}>
-                <div className={clsx('d-flex', classes.currentlyPlayingInfo)}>
-                    <Image style={{ height: 150, width: 150, paddingBottom: 0 }} src={currentTrack?.body?.item?.album?.images[1].url} />
-                    <div className="flex-column text-light">
-                        <p className="m-4">{currentTrack?.body.item.name}</p>
-                        {/** // TODO: handle how to display multiple artsits */}
-                        <p className="m-4" style={{ fontSize: '13px' }}>{currentTrack?.body?.item?.artists.map((artist: any) => artist.name)}</p>
-                    </div>
-                </div>
-                <ContentCard className={clsx(classes.currentlyPlayingBg, 'bg-success')}>
+                <div className={classes.currentlyPlayingContainer}>
+                    {playbackState?.body.is_playing ?
+                        <div className={clsx('d-flex', classes.currentlyPlayingInfo)}>
+                            <Image style={{ height: 150, width: 150, paddingBottom: 0 }} src={currentTrack?.body?.item?.album?.images[1].url} />
+                            <div className="flex-column text-light">
+                                <p className="m-4">{currentTrack?.body.item.name}</p>
+                                <p className="m-4" style={{ fontSize: '13px' }}>{currentTrack?.body?.item?.artists.map((artist: any) => artist.name)}</p>
+                            </div>
+                        </div> : ""}
+                    <ContentCard className={clsx(classes.currentlyPlayingBg, 'bg-success')}>
 
-                </ContentCard>
-            </div>
+                    </ContentCard>
+                </div>
             </div>
             <div className={classes.topTracksText}>Your Top Tracks</div>
             <div className={classes.topTracks}>
