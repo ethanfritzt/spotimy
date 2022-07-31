@@ -103,6 +103,11 @@ app.get('/api/v1/spotimy/currentTrack', async (req, res) => {
     return res.send(data);
 });
 
+app.get('/api/v1/spotimy/playbackState', async (req, res) => {
+    const data = await spotifyApi.getMyCurrentPlaybackState();
+    return res.send(data);
+});
+
 app.listen(5001, () =>
     console.log("Listening on port 5001...")
 );
