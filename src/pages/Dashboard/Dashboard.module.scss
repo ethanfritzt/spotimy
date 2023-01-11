@@ -88,6 +88,35 @@
     animation-duration: 4s;
 }
 
+.loadingDotsVertical {
+    display: flex;
+    flex-direction: row;
+}
+
+.loadingDotsVertical > div {
+    width: 16px;
+    height: 16px;
+    margin: 3px 6px;
+    border-radius: 50%;
+    background-color: grey;
+    opacity: 1;
+    animation: bouncingLoader 0.6s linear infinite;
+}
+
+.loadingDotsVertical > div:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.loadingDotsVertical > div:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes bouncingLoader {
+    0% { margin-bottom: 0; }
+    50% { margin-bottom: 15px }
+    100% { margin-bottom: 0; }
+}
+
 @keyframes showTopTracks {
     from {
         opacity: 0;
