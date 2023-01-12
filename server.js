@@ -2,7 +2,7 @@ import SpotifyWebApi from "spotify-web-api-node";
 import express from "express";
 import cors from 'cors';
 import 'dotenv/config';
-
+ 
 const scopes = [
     'ugc-image-upload',
     'user-read-playback-state',

@@ -54,6 +54,7 @@
   },
   "devDependencies": {
     "@types/request": "^2.48.8",
-    "@types/spotify-web-api-node": "^5.0.7"
+    "@types/spotify-web-api-node": "^5.0.7",
+    "prettier": "2.8.2"
   }
 }
