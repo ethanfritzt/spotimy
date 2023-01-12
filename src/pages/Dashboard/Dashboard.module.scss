@@ -10,7 +10,7 @@
 }
 
 .trackListContainer {
-    position: absolute; 
+    position: absolute;
     z-index: 5;
     height: 50vh;
     width: 30vw;
@@ -50,12 +50,12 @@
 }
 
 .currentlyPlayingInfo {
-    position: absolute; 
+    position: absolute;
     z-index: 5;
     top: 4%;
     right: 0;
     bottom: 0;
-    left: 38%; 
+    left: 38%;
 }
 
 .currentlyPlayingBg {
@@ -74,7 +74,7 @@
     position: absolute;
     top: 5%;
     bottom: 0;
-    left: 50%;
+    left: 45%;
     right: 0;
     margin: 0;
     animation-duration: 2s;
@@ -112,9 +112,15 @@
 }
 
 @keyframes bouncingLoader {
-    0% { margin-bottom: 0; }
-    50% { margin-bottom: 15px }
-    100% { margin-bottom: 0; }
+    0% {
+        margin-bottom: 0;
+    }
+    50% {
+        margin-bottom: 15px;
+    }
+    100% {
+        margin-bottom: 0;
+    }
 }
 
 @keyframes showTopTracks {
