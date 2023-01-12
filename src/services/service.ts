@@ -42,7 +42,7 @@ export const getMe = async () => {
 };
 
 export const getMyDevices = async () => {
-  const response = await fetch(baseUrl + "/api/v1/spotimy/getMyDevices", {
+  const response = await fetch(baseUrl + "/api/v1/spotimy/getDevices", {
     method: "GET",
     headers: {
       Accept: "application/json",
