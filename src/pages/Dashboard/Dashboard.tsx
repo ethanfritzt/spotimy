@@ -66,7 +66,7 @@ function Dashboard(props: DashboardProps) {
         setPlaybackState(data);
     };
 
-    console.log(recentTracks);
+    console.log(myDevices);
 
     return (
         <>
@@ -115,8 +115,16 @@ function Dashboard(props: DashboardProps) {
                                 </p>
                                 <p className="m-4" style={{ fontSize: "13px" }}>
                                     {currentTrack?.body?.item?.artists.map(
-                                        (artist: any) => artist.name
+                                        (artist: any, index: any) =>
+                                            (index ? ", " : "") + artist.name
                                     )}
+                                </p>
+                                <p
+                                    style={{ fontSize: "12px" }}
+                                    className="ms-3"
+                                >
+                                    Listening on{" "}
+                                    {myDevices?.body.devices[0].name}
                                 </p>
                             </div>
                         </div>
