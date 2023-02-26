@@ -1,5 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Button, Col, Container, Image, Row } from "react-bootstrap";
+import {
+    Button,
+    Col,
+    Container,
+    Image,
+    Row,
+    OverlayTrigger,
+    Tooltip,
+} from "react-bootstrap";
 import ContentCard from "../../components/ContentCard";
 import classes from "./Dashboard.module.scss";
 
@@ -109,10 +117,22 @@ function Dashboard(props: DashboardProps) {
                                         .url
                                 }
                             />
-                            <div className="flex-column text-light">
-                                <p className="m-4">
-                                    {currentTrack?.body.item.name}
-                                </p>
+                            <div className="flex-column text-light text-truncate">
+                                <OverlayTrigger
+                                    placement="left"
+                                    overlay={
+                                        <Tooltip>
+                                            {currentTrack?.body.item.name}
+                                        </Tooltip>
+                                    }
+                                >
+                                    <span className="text-truncate">
+                                        <p className="m-4">
+                                            {currentTrack?.body.item.name}
+                                        </p>
+                                    </span>
+                                </OverlayTrigger>
+
                                 <p className="m-4" style={{ fontSize: "13px" }}>
                                     {currentTrack?.body?.item?.artists.map(
                                         (artist: any, index: any) =>
@@ -121,7 +141,7 @@ function Dashboard(props: DashboardProps) {
                                 </p>
                                 <p
                                     style={{ fontSize: "12px" }}
-                                    className="ms-3"
+                                    className="ms-4"
                                 >
                                     Listening on{" "}
                                     {myDevices?.body.devices[0].name}

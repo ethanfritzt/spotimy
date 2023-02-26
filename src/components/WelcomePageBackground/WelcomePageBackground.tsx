@@ -19,14 +19,14 @@ function WelcomePageBackground(props: WelcomePageBackgroundProps) {
         setAlbums(data);
     };
 
-    useEffect(() =>{
+    useEffect(() => {
         getAlbumData();
     }, []);
 
     return (
         <Container>
             <div className={classes.background}>
-                {albums.items?.map((song: any) => <Image style={{ height: '105px', width: '105px'}}src={song.track.album.images[1].url}/>)}
+                {albums.items?.map((song: any) => <Image style={{ height: '105px', width: '105px' }} src={song.track.album.images[1].url} />)}
             </div>
             <div>
                 <LoginPrompt className={classes.overlay} title="Spotimy" description="Welcome to Spotimy" buttonText="Get Started" href="http://localhost:3000/dashboard" />
